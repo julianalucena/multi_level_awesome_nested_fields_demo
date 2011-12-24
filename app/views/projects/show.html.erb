@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<strong>Tasks</strong>
+<ol>
+  <% @project.tasks.each do |task| %>
+    <li>
+      <div>
+        <%= task.description %>
+      </div>
+      <strong>Resources</strong>
+      <ul>
+        <% task.resources.each do |resource| %>
+          <li><%= pluralize resource.quantity, resource.name %></li>
+        <% end %>
+      </ul>
+    </li>
+<% end %>
+</ol>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

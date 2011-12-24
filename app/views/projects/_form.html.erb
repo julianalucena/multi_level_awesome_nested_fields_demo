@@ -1,0 +1,29 @@
+<%= form_for @project, :html => { :class => "project-form" } do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+    <h2>Tasks</h2>
+    <ol class="tasks-container">
+      <%= f.nested_fields_for :tasks, render_template: false, new_item_index: 'new_task_item' do |f| %>
+        <%= render 'task_fields', f: f %>
+      <% end %>
+    </ol>
+    <%= nested_fields_templates %>
+    <a href="#" class="task-add">Add Task</a>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

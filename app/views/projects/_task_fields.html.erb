@@ -1,0 +1,27 @@
+<li class="task">
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <h3>Resources</h3>
+  <div class="nested-level-2">
+    <ul class="resources-container">
+      <%= f.nested_fields_for :resources, new_item_index: 'new_resource_item', html: { class: "resource-form" } do |f| %>
+        <li class="resource">
+          <%= f.label :quantity %>
+          <%= f.number_field :quantity %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+
+          <a href="#" class="resource-remove">remove</a>
+
+          <%= f.hidden_field :id %>
+          <%= f.hidden_field :_destroy %>
+        </li>
+      <% end %>
+    </ul>
+    <a href="#" class="resource-add">Add Resource</a>
+  </div>
+  <a href="#" class="task-remove">remove</a>
+
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :_destroy %>
+</li>

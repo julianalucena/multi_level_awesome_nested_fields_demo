@@ -1,0 +1,19 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.tasks-container .task {
+  display: block;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #ccc;
+  margin-bottom: 10px;
+}
+
+.resources-container li.resource {
+  display: block;
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.actions {
+  margin-top: 20px;
+}
