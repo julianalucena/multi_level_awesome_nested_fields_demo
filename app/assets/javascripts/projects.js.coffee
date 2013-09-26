@@ -8,7 +8,7 @@ jQuery ($) ->
     addSelector: ".resource-add",
     removeSelector: ".resource-remove",
     itemTemplateSelector: ".resource.template",
-    new_item_index: "new_resource_index"
+    newItemIndex: "new_resource_item"
   }
 
   $(".project-form").nestedFields({
@@ -17,7 +17,7 @@ jQuery ($) ->
     addSelector: ".task-add",
     removeSelector: ".task-remove",
     itemTemplateSelector: ".task.template",
-    new_item_index: "new_task_index",
+    newItemIndex: "new_task_item",
     afterInsert: (item) ->
       # Applies nestedFields to this task's resources
       item.find(".nested-level-2").nestedFields(resourcesOptions)
